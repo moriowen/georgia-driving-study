@@ -1,5 +1,9 @@
 # Peach State driving study
 
+Live app: https://moriowen.github.io/georgia-driving-study/
+
+Source: https://github.com/moriowen/georgia-driving-study
+
 A standalone Georgia DDS knowledge-test study app with 330 original practice questions: 256 road rules and 74 visual signs, signals, and markings.
 
 Open `dist/index.html` directly in a browser, or deploy `dist` to a static HTTPS host. The hosted app is an installable PWA with a service worker that caches the full embedded question bank, images, manifest, and icons. No build dependencies, account, or server are required. The hosted and offline copies use separate browser storage. Export and import a JSON backup to transfer progress.
@@ -37,3 +41,5 @@ Open the hosted app while online and wait for **Ready offline · all 330 questio
 `node --test test-offline.cjs` tests service-worker installation, offline navigation and image retrieval, cache isolation, readiness reporting, and installation failures without a browser. Actual device installation was not tested.
 
 GitHub Pages is deployed from the root of `gh-pages`. To publish changes: run `python3 build.py`, run the code checks, commit the app source, push `main`, then run `git subtree push --prefix dist github gh-pages`.
+
+If you previously studied on the private Sites version, export progress there and import it on the new GitHub Pages app. Different origins do not share local storage.
