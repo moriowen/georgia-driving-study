@@ -1,0 +1,79 @@
+## Regulatory signs
+23_stop|What must you do at this sign?|Make a complete stop and yield before proceeding|Slow down but continue if the road looks clear|Stop only when another vehicle is present|Stop at the line, or before the crosswalk when no line exists, and proceed only when safe.
+24_yield|What does this sign require?|Slow down and yield; stop if necessary|Always accelerate into the intersection|Continue without checking other traffic|Yield to vehicles already in or closely approaching the intersection.
+31_wrong|What does this sign tell you?|You are traveling toward traffic in the wrong direction|The road ends in one mile|The lane is reserved for passing|Do not continue in the direction you are facing.
+34_no%20u|What maneuver is prohibited by this sign?|A U-turn|A right turn|Driving straight|The crossed-out arrow prohibits turning around to travel in the opposite direction.
+37_reduced|What should you prepare for at this sign?|A lower speed limit ahead|A higher speed limit ahead|The end of all speed restrictions|Begin adjusting speed before entering the lower-speed area.
+40_school|When does this sign require the displayed school speed limit?|When the warning lights are flashing|Only after sunset|Only when a school bus is visible|Watch the lights and obey the displayed school-zone condition.
+32_one|What does this sign require?|Travel only in the arrow's direction|Turn around immediately|Yield only to vehicles on your right|A one-way sign defines the permitted direction of traffic.
+35_no%20right|What does this sign prohibit?|Turning right|Turning left|Going straight|The red slash prohibits the pictured maneuver.
+38_slower|What should slower traffic do at this sign?|Use the right travel lane or lanes|Stay in the far left lane|Use the shoulder as a travel lane|Keep right except for lawful passing or other permitted movements.
+41_no%20bicycles|What does this sign mean?|Bicycles may not enter|Bicycles have an exclusive lane|Bicycle parking is available|The symbol with a prohibition mark excludes bicycles from this roadway.
+30_do%20not|What should you do when facing this sign at a road entrance?|Do not enter that roadway|Enter only if you turn on headlights|Proceed after a brief stop regardless of direction|Traffic may be coming toward you on a one-way road or ramp.
+33_keep|Where should traffic pass the obstruction indicated by this sign?|To the right|To the left only|On either side regardless of markings|The arrow directs traffic around the median or obstruction.
+36_speed|What does the number on this sign represent?|The maximum permitted speed in that area under suitable conditions|A required minimum speed in all weather|An advisory speed that can always be ignored|A regulatory limit does not excuse driving too fast for conditions.
+39_no%20right|What does this sign prohibit?|A right turn on red, even after stopping|All right turns on green|Only U-turns|Wait for a signal allowing the turn.
+42_no%20trucks|What does this sign mean?|Trucks are prohibited|Only trucks may enter|Truck parking is ahead|Obey vehicle-type restrictions.
+## Warning signs
+43_sharp|What change in the roadway is shown?|A sharp right turn followed by a sharp left turn|A single gentle left curve|A divided highway begins|Reduce speed before the sequence of sharp turns.
+48_side|What does this sign warn about?|A side road joining at an angle|A railroad crossing|A lane reserved for emergency vehicles|Watch for vehicles entering from the indicated side.
+49_narrow|What does this sign warn about?|A narrow bridge ahead|A tunnel with unlimited clearance|A divided highway begins|The bridge has limited width; maintain your lane and use caution.
+50_soft|What does this sign mean?|The shoulder may not support normal travel safely|The pavement ahead is made of gravel only|All vehicles must move onto the shoulder|A soft shoulder can cause loss of control; use it only for an emergency.
+51_two|What traffic pattern should you expect?|Two-way traffic ahead|All traffic moving in your direction|A one-way ramp|Be prepared for opposing traffic.
+44_sharp|What does this sign indicate?|A sharp turn to the right|A gentle curve left|A right lane ending|Slow before the turn.
+45_winding|What does this sign warn about?|A winding road ahead|A slippery shoulder only|An expressway entrance|Prepare for a series of curves.
+53_another|What should you expect at this sign?|A road crossing the highway ahead|An airport runway crossing|A dead-end street|Watch for cross traffic at the upcoming intersection.
+54_dip|What does this sign warn about?|A dip in the road|A steep uphill climb only|A low overhead bridge|Slow down for the change in road surface.
+55_divided|What does this sign indicate?|A divided highway begins ahead|A divided highway ends ahead|The road is closed|Prepare for a median or divider separating opposing traffic.
+56_low|What should you check when you see this sign?|Whether the height of your vehicle and load fits under the obstruction|Only the width of your tires|Whether your headlights are on|Do not enter if the vehicle or cargo exceeds the posted clearance.
+46_curve|What does this sign show?|A curve to the right|A sharp left turn|A road ending|Adjust speed before entering the curve.
+47_side|What does this sign warn about?|A side road entering the highway|A mandatory right turn for all traffic|A railroad junction|Watch for entering vehicles.
+58_road|What should you prepare to do?|Yield or stop before turning right or left at the road's end|Continue straight at the same speed|Enter an express lane|The road ends at a T-intersection.
+59_bump|What is ahead?|A bump in the roadway|A low-clearance tunnel|A mandatory stop for every vehicle|Reduce speed for the raised surface.
+60_divided|What does this sign indicate?|The divided highway ends ahead|A divided highway begins ahead|Only one-way traffic is allowed|Prepare for opposing traffic without the divider.
+52_hill|What hazard does this sign warn about?|A steep downhill grade|A truck-only parking area|A mandatory truck turn|Reduce speed and use an appropriate lower gear to control descent.
+57_signal|What should you prepare for?|A traffic signal ahead|A railroad gate only|A toll booth with no signals|Reduce speed and be ready for traffic stopped at the signal.
+64_slippery|What condition does this sign warn about?|A road that may be slippery when wet|A recommended weaving maneuver|A bicycle-only lane|Avoid abrupt braking and steering, especially when the surface is wet.
+61_merge|What does this sign warn about?|Traffic merging from the right|A required U-turn|The end of all lanes|Adjust speed and position to allow a safe merge.
+63_yield|What should you expect ahead?|A yield sign|A stop sign in every lane|A railroad crossing gate|Slow down and prepare to yield or stop.
+62_stop|What should you prepare for?|A stop sign ahead|A school bus parking lot|A signal that is always green|Begin slowing so you can make a complete stop.
+69_pedestrians|What should you watch for here?|Pedestrians in a crosswalk|Vehicles passing in both directions|A bridge opening|Be prepared to stop and remain stopped for pedestrians as required.
+65_no%20passing|What does this sign mark?|The beginning of a no-passing zone|The beginning of a passing lane|An area where only trucks may pass|Complete any lawful pass before reaching the no-passing zone.
+68_lanes|What should you expect?|Fewer travel lanes ahead|An extra travel lane beginning|An unrestricted shoulder lane|Prepare to merge safely as a lane ends.
+48_School|What does this pentagon-shaped sign warn about?|A school zone or school crossing|A hospital entrance|A railroad crossing|Watch for children and follow posted school-zone limits.
+## Guide signs and railroad signs
+83_junction|What information does this sign provide?|The numbered routes meet or cross ahead|The speed limit is the sum of the numbers|The road is closed to all vehicles|Junction signs identify intersecting routes.
+85_mile|What does this marker identify?|The mile location along a route|A mandatory speed of 44 mph|The number of lanes ahead|Mile markers help locate your position, including during an emergency.
+86_caution|What does this emblem on a vehicle mean?|A slow-moving vehicle traveling less than 25 mph|A vehicle that always has right of way|A vehicle transporting only emergency workers|Approach with caution and pass only when lawful and safe.
+84_bike|What does this sign identify?|An officially designated bicycle route|A road where bicycles are prohibited|A bicycle repair requirement|Watch for bicyclists along the route.
+87_parking|What does this sign point toward?|A public parking area|A no-parking zone|An expressway exit closed to cars|Follow the arrow to the indicated parking facility.
+97_railroad|What should you do at this crossbuck?|Yield to trains and stop when required by signals or an approaching train|Assume road vehicles have priority|Stop on the tracks to check both directions|The crossbuck identifies a railroad crossing; the lower plaque can show the number of tracks.
+73_road|What should you do at a ROAD CLOSED sign and detour?|Follow the designated detour|Drive past the barricade if the road looks empty|Use the sidewalk to bypass it|An official closure must be obeyed.
+## Traffic signals
+89_red|What does this traffic signal require?|A complete stop before the crosswalk or intersection|A rolling stop if the road is empty|Acceleration to clear the intersection|Remain stopped until a permitted movement is available; obey restrictions on turns.
+89_yellow|What does a steady yellow light warn you about?|The light is changing from green to red|The light is about to turn green|You must always accelerate|Slow and prepare to stop safely rather than rushing through.
+89_green|What does this signal allow?|Proceeding if the path is clear, after yielding as required|Immediate entry regardless of pedestrians|Entering a blocked intersection|A green light does not remove the duty to avoid conflicts.
+90_green%20up|What movement does this green arrow permit?|Proceeding straight ahead carefully after yielding as required|Turning in any direction|Only a U-turn|Follow the direction of the arrow.
+90_green%20left|What movement does this green arrow permit?|A left turn after yielding to pedestrians and vehicles already in the intersection|A right turn only|A turn without checking for anyone|A protected arrow still requires care for people or vehicles in the path.
+90_yellow%20right|What does a yellow arrow following a green arrow warn about?|The permitted arrow phase is ending; clear the intersection safely|A new unlimited turn phase is beginning|All vehicles must reverse|Be prepared for the signal change rather than starting a rushed maneuver.
+90_red%20flash|How should you treat a flashing red signal?|Like a stop sign: stop completely, then yield and proceed when safe|Like a green light|As a requirement to slow without stopping|Every driver facing flashing red must stop.
+90_yellow%20flash|What does a flashing yellow signal require?|Slow down and proceed with caution|A mandatory full stop in every case|Accelerate without checking|Watch carefully for conflicts.
+91_flashing|What does a flashing yellow left arrow mean?|You may turn left after yielding to oncoming traffic and pedestrians|Oncoming traffic is stopped by a red light|You have an exclusive protected turn|The opposing traffic may still have a green signal.
+92_no|What does the red lane-control X mean?|Do not travel in this lane in your direction|The lane is open for passing|Only motorcycles may use the lane|Obey overhead lane-control signals.
+94_travel|What does this green lane-control arrow mean?|Travel in the indicated lane is permitted|The lane is closed|You must stop in the lane|Check lane-control signals on reversible roadways.
+95_left|What does this overhead lane sign require?|A left turn from that lane|Any movement except a left turn|Driving straight only|Use the lane only for the indicated movement.
+96_straight|What movements are allowed from this lane?|Straight ahead or left|Right turn only|U-turn only|Follow the arrows shown for your lane.
+97_right|What does this overhead lane sign require?|A right turn from that lane|A left turn only|Driving straight only|Choose the proper lane before reaching the intersection.
+98_walk|What does the WALK pedestrian signal permit?|A pedestrian to begin crossing after checking traffic|Vehicles to ignore the crosswalk|Pedestrians to cross without looking|Turning drivers must still stop for pedestrians as required.
+99_dont|What does this steady DON'T WALK signal mean for a pedestrian at the curb?|Do not start crossing|Run across immediately|Cross if no vehicle is sounding its horn|Wait for the appropriate pedestrian signal.
+100_dont|A DON'T WALK indication is flashing. What should a pedestrian already crossing do?|Finish crossing, but pedestrians at the curb should not start|Stop and remain in the traffic lane|Run back to the starting curb in all cases|The clearance phase allows those already crossing to finish.
+102_Dark|A pedestrian hybrid beacon is dark. What does that ordinarily mean?|It has not been activated for a pedestrian crossing|Every driver must treat it as a four-way stop|The road is permanently closed|A normally dark hybrid beacon differs from a failed conventional intersection signal.
+103_flashing|A pedestrian hybrid beacon flashes yellow. What should a driver do?|Use caution and prepare for the stopping sequence|Treat it as a permanent green light|Immediately reverse|The flashing yellow stage warns of an activated pedestrian crossing.
+104_solid|A pedestrian hybrid beacon shows steady yellow. What should you do?|Reduce speed and prepare to stop|Accelerate toward the crosswalk|Assume pedestrians are prohibited|The beacon is about to show steady red.
+105_solid|A pedestrian hybrid beacon shows two steady red lights. What must you do?|Stop|Proceed without slowing|Use the opposing lane to bypass the crosswalk|Steady red requires stopping for the crossing.
+106_flashing|A pedestrian hybrid beacon alternates flashing red. What must you do?|Stop completely, then proceed only when the crosswalk is clear|Drive through without stopping|Wait until the beacon is activated again even if the crosswalk is clear|Each driver must stop before proceeding during flashing red.
+## Pavement markings
+108_stop|Where should you stop when a marked stop line is present?|Before the stop line|At the sign even if that puts you across the line|In the middle of the intersection|The pavement line identifies the stopping point.
+109_railroad|What do an X and two R letters painted on the road warn about?|A railroad crossing|A hospital entrance|A roundabout|Look for trains and obey crossing warnings.
+110_center|What do yellow center lines separate?|Traffic moving in opposite directions|Traffic moving only in the same direction|Only bicycle lanes from parking|Read broken or solid patterns to determine passing restrictions.
+111_lane|What do white broken lane lines generally separate?|Lanes of traffic moving in the same direction|Opposing directions of travel|A mandatory stopping area|Cross only when a lane change is lawful and safe.
