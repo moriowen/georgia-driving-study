@@ -1,0 +1,7 @@
+.git
+.openai
+sources
+src
+test-*.cjs
+build*.py
+README.md

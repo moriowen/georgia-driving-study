@@ -1,6 +1,6 @@
 # Peach State driving study
 
-Live app: https://moriowen.github.io/georgia-driving-study/
+Live app: https://georgia-driving-study.vercel.app/
 
 Source: https://github.com/moriowen/georgia-driving-study
 
@@ -40,6 +40,8 @@ Open the hosted app while online and wait for **Ready offline · all 330 questio
 
 `node --test test-offline.cjs` tests service-worker installation, offline navigation and image retrieval, cache isolation, readiness reporting, and installation failures without a browser. Actual device installation was not tested.
 
-GitHub Pages is deployed from the root of `gh-pages`. To publish changes: run `python3 build.py`, run the code checks, commit the app source, push `main`, then run `git subtree push --prefix dist github gh-pages`.
+Vercel hosts the app at its own standalone domain and is connected to the GitHub repository. To publish changes: run `python3 build.py`, run the code checks, commit the source and built `dist` files, then push `main`. Vercel serves `dist` with no remote build dependencies. For a manual production deployment, run `npx vercel --prod`.
 
-If you previously studied on the private Sites version, export progress there and import it on the new GitHub Pages app. Different origins do not share local storage.
+If you previously studied on the private Sites version, export progress there and import it on the Vercel app. Different origins do not share local storage.
+
+Progress from any previous hostname must be exported there and imported into the Vercel app, since browser storage is scoped to each origin.

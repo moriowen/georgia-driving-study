@@ -3,3 +3,6 @@ node_modules/
 sources/manual.html
 sources/manual.txt
 *.tar.gz
+
+.vercel/
+.vercel
