@@ -1,5 +1,5 @@
 'use strict';
-const VERSION='ec916aea0f5f28d8';
+const VERSION='bcabef0494ffd59c';
 const PREFIX='peach-state:'+self.registration.scope+':';
 const CACHE=PREFIX+VERSION;
 const local=path=>new URL(path,self.registration.scope).href;

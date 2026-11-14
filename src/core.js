@@ -16,18 +16,30 @@ function record(old,correct,now=Date.now()){
 function shuffle(a,rng=Math.random){a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function unresolved(r){return !!r&&r.wrong>0&&r.streak<2}
 function mastered(r){return !!r&&r.streak>=2}
-function select(bank,records,{kind='all',category='all',mode='smart',limit=20,now=Date.now()}={}){
+function select(bank,records,{kind='all',category='all',mode='coverage',limit=20,now=Date.now()}={}){
  let pool=bank.filter(q=>(kind==='all'||q.kind===kind)&&(category==='all'||q.category===category));
  if(mode==='missed')pool=pool.filter(q=>unresolved(records[q.id]));
- if(mode==='unseen')pool=pool.filter(q=>!records[q.id]);
+ if(mode==='unseen'||mode==='coverage')pool=pool.filter(q=>!(records[q.id]?.attempts>0));
  if(mode==='due')pool=pool.filter(q=>records[q.id]&&records[q.id].due<=now);
- pool=shuffle(pool);
+ if(mode!=='coverage')pool=shuffle(pool);
  if(mode==='smart'||mode==='missed'){
   const rank=q=>{const r=records[q.id];return r&&unresolved(r)&&r.due<=now?0:!r?1:r.due<=now?2:3};
   pool.sort((a,b)=>rank(a)-rank(b));
  }
  return pool.slice(0,limit==='all'?pool.length:Number(limit));
 }
+function cardSets(bank,size=20){
+ if(!Number.isInteger(size)||size<1)throw Error('Invalid card-set size');
+ const rules=bank.filter(q=>q.kind==='rules'),signs=bank.filter(q=>q.kind==='signs'),ordered=[];
+ let r=0,s=0;
+ for(let i=0;i<bank.length;i++){
+  const signSlot=Math.floor((i+1)*signs.length/bank.length)>Math.floor(i*signs.length/bank.length);
+  ordered.push(signSlot?signs[s++]:rules[r++]);
+ }
+ const sets=[];for(let i=0;i<ordered.length;i+=size){const number=sets.length+1;sets.push({id:'set-'+String(number).padStart(2,'0'),number,questions:ordered.slice(i,i+size)})}return sets;
+}
+function setProgress(set,records){const remaining=set.questions.filter(q=>!(records[q.id]?.attempts>0));return{total:set.questions.length,covered:set.questions.length-remaining.length,remaining,missed:set.questions.filter(q=>unresolved(records[q.id])).length}}
+function nextSet(bank,records){return cardSets(bank).find(set=>setProgress(set,records).remaining.length>0)||null}
 function exam(bank){return [...shuffle(bank.filter(q=>q.kind==='signs')).slice(0,20),...shuffle(bank.filter(q=>q.kind==='rules')).slice(0,20)]}
 function grade(questions,answers){let result={rules:{correct:0,total:0},signs:{correct:0,total:0}};questions.forEach(q=>{result[q.kind].total++;if(answers[q.id]===q.answer)result[q.kind].correct++});result.passed=result.rules.total===20&&result.signs.total===20&&result.rules.correct>=15&&result.signs.correct>=15;return result}
 function validateBackup(input,bank){
@@ -41,6 +53,6 @@ function validateBackup(input,bank){
  if(Array.isArray(input.exams)) safe.exams=input.exams.slice(-100).filter(e=>e&&Number.isFinite(e.date)&&['rules','signs'].every(k=>e[k]&&e[k].total===20&&Number.isInteger(e[k].correct)&&e[k].correct>=0&&e[k].correct<=20)).map(e=>({date:e.date,revision:Number.isInteger(e.revision)&&e.revision>0?e.revision:1,rules:{correct:e.rules.correct,total:20},signs:{correct:e.signs.correct,total:20},passed:e.rules.correct>=15&&e.signs.correct>=15}));
  return safe;
 }
-const api={DAY,empty,record,shuffle,unresolved,mastered,select,exam,grade,validateBackup};
+const api={DAY,empty,record,shuffle,unresolved,mastered,select,cardSets,setProgress,nextSet,exam,grade,validateBackup};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.StudyCore=api;
 })(typeof window!=='undefined'?window:globalThis);

@@ -67,3 +67,11 @@ Existing pre-sync records are migrated as baseline snapshots. Because an old agg
 `node --test test-sync.cjs` tests two-device merging, offline queues, lost-reply retries, reload, baseline migration, reset propagation, invalid keys, backups, concurrent tabs, and invalid events. `node test-dom-sync.cjs` exercises the actual app integration using a simulated remote service. The LinkeDOM dependency is the same temporary QA installation used by `test-dom.cjs`.
 
 Database schema: `supabase/sync.sql`. To configure it, `node scripts/configure-sync.mjs <PAT-secret-file> <project-ref>` uses a short-lived project-scoped token with Database read-write permission. It creates or reuses a private pairing key outside this repository at `/private/tmp/georgia-driving-sync-key`; keep the current private link for pairing devices. Rerunning setup without that key file rotates the connection key. The setup token can be revoked afterward without affecting app sync.
+
+## Covering all 330 questions
+
+Study cards is organized into 17 fixed, non-overlapping sets: 16 sets of 20 cards and a last set of 10. Every set mixes road rules with visual signs/signals. The membership and order stay stable across devices. Flashcards are the default, with multiple choice available in the format selector.
+
+Any answered question, including a missed one, counts toward coverage. Starting or continuing a partial set includes only its remaining unanswered cards. Next uncovered set advances through the bank; after all 330 are covered, it stops instead of silently repeating cards. Selecting Review this set or opening Missed questions explicitly enables repetition. Coverage derives from the existing synced answer records, so it also follows you between connected devices without new database fields. Unfinished sessions remain device-local.
+
+`node --test test-coverage.cjs` checks the partition and non-repeating selection. `node test-dom-coverage.cjs` reproduces a complete all-wrong flashcard run through all 330 questions and checks partial-set resume and explicit review. This replaces the earlier default Smart study behavior, which repeatedly prioritized the same missed card across new sessions.
