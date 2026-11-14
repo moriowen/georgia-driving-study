@@ -6,7 +6,7 @@ Source: https://github.com/moriowen/georgia-driving-study
 
 A standalone Georgia DDS knowledge-test study app with 330 original practice questions: 256 road rules and 74 visual signs, signals, and markings.
 
-Open `dist/index.html` directly in a browser, or deploy `dist` to a static HTTPS host. The hosted app is an installable PWA with a service worker that caches the full embedded question bank, images, manifest, and icons. No build dependencies, account, or server are required. The hosted and offline copies use separate browser storage. Export and import a JSON backup to transfer progress.
+Open `dist/index.html` directly in a browser, or deploy `dist` to a static HTTPS host. The hosted app is an installable PWA with a service worker that caches the full embedded question bank, images, manifest, and icons. No build dependencies or study-app account are required. Optional cloud sync uses Supabase; no custom server is deployed. The hosted and offline copies use separate browser storage. Export and import a JSON backup to transfer progress.
 
 Features: multiple-choice practice, self-rated flashcards, due review, mistake queue, saved session resume, searchable question library, 40-question exams with independent 15/20 passing requirements, progress export/import, and a downloadable offline copy.
 
@@ -42,9 +42,9 @@ Open the hosted app while online and wait for **Ready offline · all 330 questio
 
 Vercel hosts the app at its own standalone domain and is connected to the GitHub repository. To publish changes: run `python3 build.py`, run the code checks, commit the source and built `dist` files, then push `main`. Vercel serves `dist` with no remote build dependencies. For a manual production deployment, run `npx vercel --prod`.
 
-If you previously studied on the private Sites version, export progress there and import it on the Vercel app. Different origins do not share local storage.
+If you previously studied on another hostname, connect both copies with the same private link if they support sync, or export the older progress and import it into the Vercel app. Different origins do not share local storage.
 
-Progress from any previous hostname must be exported there and imported into the Vercel app, since browser storage is scoped to each origin.
+An installed home-screen app may have separate storage from the phone browser. Connect that installed copy too, under Progress & backup.
 
 ## Revised question bank
 
@@ -53,3 +53,17 @@ Revision 2 reviews all 330 items, replaces 328 answer sets, and rewrites 113 que
 Question IDs are stored in `sources/question_ids.json` so wording changes retain history. Revision changes clear an unfinished session instead of grading old choices against new wording. Existing progress remains, and past exams are labeled Earlier bank. Build commands also work from the tracked image URL registry if the untracked DDS HTML snapshot is absent.
 
 The Practice exam page includes the official two-section cutoff and DDS test-day procedure details. For an installed offline copy, open it online to download the update, then close and reopen it. The home page will say Revised bank.
+
+## Automatic Supabase sync
+
+Open the same private connection link on your phone and laptop once. No sign-up or login is used. The link contains a random 256-bit shared capability in its URL fragment; the app removes that fragment from the address bar and remembers the key locally. Anyone with the link can read and update the one shared history. Do not publish or commit that link.
+
+The deployed `src/sync-config.json` contains only the project URL and browser-safe publishable API key. Supabase has private, RLS-enabled history/settings tables with no anonymous table grants. A restricted SQL RPC verifies the SHA-256 hash of the private connection key before accepting or returning events. Management tokens, database passwords, secret API keys, and the private connection key are not shipped in the public app.
+
+Answers and completed exams sync after a short debounce, on reopening/reconnecting, and about every 30 seconds while the app is visible. Offline answers are persisted as immutable events and uploaded on reconnect. Unique event IDs prevent retry duplication; both devices replay the same merged history. An unfinished quiz/exam stays on its current device. Free-project pausing can temporarily stop cloud sync, but local study remains available.
+
+Existing pre-sync records are migrated as baseline snapshots. Because an old aggregate cannot identify overlapping past attempts, the most complete prior record per question is retained rather than adding snapshots together. Every answer recorded after migration merges individually. Backups include event history but omit connection credentials. New-format backups merge; restoring an older backup while connected or resetting progress requires confirmation and propagates to connected devices.
+
+`node --test test-sync.cjs` tests two-device merging, offline queues, lost-reply retries, reload, baseline migration, reset propagation, invalid keys, backups, concurrent tabs, and invalid events. `node test-dom-sync.cjs` exercises the actual app integration using a simulated remote service. The LinkeDOM dependency is the same temporary QA installation used by `test-dom.cjs`.
+
+Database schema: `supabase/sync.sql`. To configure it, `node scripts/configure-sync.mjs <PAT-secret-file> <project-ref>` uses a short-lived project-scoped token with Database read-write permission. It creates or reuses a private pairing key outside this repository at `/private/tmp/georgia-driving-sync-key`; keep the current private link for pairing devices. Rerunning setup without that key file rotates the connection key. The setup token can be revoked afterward without affecting app sync.
