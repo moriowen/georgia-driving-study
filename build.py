@@ -6,6 +6,8 @@ for q in bank:
  if q['image']:
   p=root/'dist'/q['image'];q['image']='data:'+mimetypes.guess_type(p)[0]+';base64,'+base64.b64encode(p.read_bytes()).decode()
 s=(root/'src/index.html').read_text().replace('/* STYLES */',(root/'src/styles.css').read_text()).replace('/* BANK */',json.dumps(bank).replace('</','<\\/')).replace('/* CORE */',(root/'src/core.js').read_text()).replace('/* APP */',(root/'src/app.js').read_text()).replace('/* PWA */',(root/'src/pwa.js').read_text()).replace('/* SYNC_CORE */',(root/'src/sync-core.js').read_text()).replace('/* SYNC_CLIENT */',(root/'src/sync-client.js').read_text()).replace('/* SYNC_CONFIG */',(root/'src/sync-config.json').read_text())
+version=hashlib.sha256((s+(root/'src/sw.js').read_text()+Path(__file__).read_text()).encode()).hexdigest()[:16]
+s=s.replace('/* APP_BUILD */',version)
 (root/'dist/index.html').write_text(s)
 print(f'Built standalone app: {len(bank)} questions, {len(s):,} characters')
 
@@ -28,7 +30,6 @@ def icon(size):
  return b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('!2I5B',size,size,8,2,0,0,0))+chunk(b'IDAT',zlib.compress(b''.join(rows),9))+chunk(b'IEND',b'')
 for size,name in [(192,'icon-192.png'),(512,'icon-512.png'),(180,'apple-touch-icon.png')]:
  (root/'dist'/name).write_bytes(icon(size))
-version=hashlib.sha256((s+json.dumps(manifest)+(root/'src/sw.js').read_text()).encode()).hexdigest()[:16]
 (root/'dist/sw.js').write_text((root/'src/sw.js').read_text().replace('/* VERSION */',version))
 (root/'dist/.nojekyll').touch()
 print('Built installable offline app, cache version '+version)

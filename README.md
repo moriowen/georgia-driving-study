@@ -75,3 +75,11 @@ Study cards is organized into 17 fixed, non-overlapping sets: 16 sets of 20 card
 Any answered question, including a missed one, counts toward coverage. Starting or continuing a partial set includes only its remaining unanswered cards. Next uncovered set advances through the bank; after all 330 are covered, it stops instead of silently repeating cards. Selecting Review this set or opening Missed questions explicitly enables repetition. Coverage derives from the existing synced answer records, so it also follows you between connected devices without new database fields. Unfinished sessions remain device-local.
 
 `node --test test-coverage.cjs` checks the partition and non-repeating selection. `node test-dom-coverage.cjs` reproduces a complete all-wrong flashcard run through all 330 questions and checks partial-set resume and explicit review. This replaces the earlier default Smart study behavior, which repeatedly prioritized the same missed card across new sessions.
+
+## App updates and older offline copies
+
+HTML navigation checks the network first, with a three-second timeout and a cached fallback. Only successful HTML containing the embedded question bank replaces the offline copy. The manifest and icons remain cached. Each build embeds a matching build ID in the page and service worker. The app shows a Load latest version button when its worker and page differ, and Check for updates can refresh without deleting localStorage or the private sync key.
+
+Pre-update pages did not acknowledge worker updates and could keep displaying the old Smart study form. After an offline-status request, the updated worker checks whether that page understands version messages. An unresponsive legacy page is navigated once to the fresh app; current pages acknowledge and use the update button. This migration does not clear stored progress. Old non-exam, unnumbered sessions are retired on load, while recorded answers, synced history, numbered-set sessions, and unfinished exams are retained.
+
+`node --test test-pwa-update.cjs test-offline.cjs` covers stale online HTML, offline fallback, invalid responses, one-time legacy refresh, update acknowledgements, and keeping progress on an unsuccessful update. The DOM coverage test also verifies legacy-session migration without clearing the existing connection key.
