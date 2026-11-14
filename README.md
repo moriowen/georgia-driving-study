@@ -45,3 +45,11 @@ Vercel hosts the app at its own standalone domain and is connected to the GitHub
 If you previously studied on the private Sites version, export progress there and import it on the Vercel app. Different origins do not share local storage.
 
 Progress from any previous hostname must be exported there and imported into the Vercel app, since browser storage is scoped to each origin.
+
+## Revised question bank
+
+Revision 2 reviews all 330 items, replaces 328 answer sets, and rewrites 113 question stems with more specific situations and explanations. Wrong choices use common confusions such as median versus turn-lane separation, flashing versus steady signals, and similar legal distances. The question count remains 256 rules and 74 visual signs/signals/markings. These are original practice items; their actual exam difficulty is not calibrated or guaranteed.
+
+Question IDs are stored in `sources/question_ids.json` so wording changes retain history. Revision changes clear an unfinished session instead of grading old choices against new wording. Existing progress remains, and past exams are labeled Earlier bank. Build commands also work from the tracked image URL registry if the untracked DDS HTML snapshot is absent.
+
+The Practice exam page includes the official two-section cutoff and DDS test-day procedure details. For an installed offline copy, open it online to download the update, then close and reopen it. The home page will say Revised bank.

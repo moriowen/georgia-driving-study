@@ -38,7 +38,7 @@ function validateBackup(input,bank){
   if(!r||!['attempts','correct','wrong','streak','due'].every(k=>Number.isFinite(r[k])&&r[k]>=0)||!['attempts','correct','wrong','streak'].every(k=>Number.isInteger(r[k]))||r.correct+r.wrong!==r.attempts||r.streak>5||r.due>8640000000000000)throw Error('The backup contains invalid progress.');
   safe.records[id]={attempts:r.attempts,correct:r.correct,wrong:r.wrong,streak:r.streak,due:r.due,last:Number.isFinite(r.last)?r.last:0,lastCorrectDay:typeof r.lastCorrectDay==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(r.lastCorrectDay)?r.lastCorrectDay:null};
  }
- if(Array.isArray(input.exams)) safe.exams=input.exams.slice(-100).filter(e=>e&&Number.isFinite(e.date)&&['rules','signs'].every(k=>e[k]&&e[k].total===20&&Number.isInteger(e[k].correct)&&e[k].correct>=0&&e[k].correct<=20)).map(e=>({date:e.date,rules:{correct:e.rules.correct,total:20},signs:{correct:e.signs.correct,total:20},passed:e.rules.correct>=15&&e.signs.correct>=15}));
+ if(Array.isArray(input.exams)) safe.exams=input.exams.slice(-100).filter(e=>e&&Number.isFinite(e.date)&&['rules','signs'].every(k=>e[k]&&e[k].total===20&&Number.isInteger(e[k].correct)&&e[k].correct>=0&&e[k].correct<=20)).map(e=>({date:e.date,revision:Number.isInteger(e.revision)&&e.revision>0?e.revision:1,rules:{correct:e.rules.correct,total:20},signs:{correct:e.signs.correct,total:20},passed:e.rules.correct>=15&&e.signs.correct>=15}));
  return safe;
 }
 const api={DAY,empty,record,shuffle,unresolved,mastered,select,exam,grade,validateBackup};
