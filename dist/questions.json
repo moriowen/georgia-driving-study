@@ -5461,14 +5461,14 @@
     "revision": 2,
     "kind": "signs",
     "category": "Traffic signals",
-    "prompt": "This pedestrian hybrid beacon is dark during normal operation. You should distinguish it from:",
+    "prompt": "This pedestrian hybrid beacon is dark during normal operation. What does that mean for approaching drivers?",
     "options": [
-      "A failed conventional intersection signal that must be treated as an all-way stop",
-      "A normal traffic signal displaying a protected green arrow",
-      "A crossing that permanently prohibits pedestrians"
+      "No beacon stop indication is active; continue with normal caution",
+      "Treat the dark beacon as a failed traffic light and make an all-way stop",
+      "Remain stopped until a green light appears on the beacon"
     ],
     "answer": 0,
-    "explanation": "A hybrid beacon normally remains dark until activated. A conventional intersection signal that has failed completely is treated as an all-way stop.",
+    "explanation": "A pedestrian hybrid beacon normally remains dark until activated. This differs from a completely failed conventional intersection signal, which is treated as an all-way stop.",
     "image": "assets/5e07124d9fe9.jpg",
     "source": "https://dds.georgia.gov/drivers-manual",
     "reference": "DDS driver manual: Traffic signals"
