@@ -70,7 +70,7 @@ Database schema: `supabase/sync.sql`. To configure it, `node scripts/configure-s
 
 ## Covering all 330 questions
 
-Study cards is organized into 17 fixed, non-overlapping sets: 16 sets of 20 cards and a last set of 10. Every set mixes road rules with visual signs/signals. The membership and order stay stable across devices. Flashcards are the default, with multiple choice available in the format selector.
+Study cards is organized into 17 fixed, non-overlapping sets: 16 sets of 20 cards and a last set of 10. Every set mixes road rules with visual signs/signals. The membership and order stay stable across devices. Multiple choice is the default, with optional flashcards available in the format selector.
 
 Any answered question, including a missed one, counts toward coverage. Starting or continuing a partial set includes only its remaining unanswered cards. Next uncovered set advances through the bank; after all 330 are covered, it stops instead of silently repeating cards. Selecting Review this set or opening Missed questions explicitly enables repetition. Coverage derives from the existing synced answer records, so it also follows you between connected devices without new database fields. Unfinished sessions remain device-local.
 
@@ -83,3 +83,5 @@ HTML navigation checks the network first, with a three-second timeout and a cach
 Pre-update pages did not acknowledge worker updates and could keep displaying the old Smart study form. After an offline-status request, the updated worker checks whether that page understands version messages. An unresponsive legacy page is navigated once to the fresh app; current pages acknowledge and use the update button. This migration does not clear stored progress. Old non-exam, unnumbered sessions are retired on load, while recorded answers, synced history, numbered-set sessions, and unfinished exams are retained.
 
 `node --test test-pwa-update.cjs test-offline.cjs` covers stale online HTML, offline fallback, invalid responses, one-time legacy refresh, update acknowledgements, and keeping progress on an unsuccessful update. The DOM coverage test also verifies legacy-session migration without clearing the existing connection key.
+
+Study-format preference v2 defaults to multiple choice. Existing unfinished flashcard sessions migrate to multiple choice on the first load of this preference version; coverage and answer history are kept. Choosing optional flashcards afterward is explicit and remembered.
